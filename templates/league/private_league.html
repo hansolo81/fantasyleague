@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="subcontent">
+ <h2>{{ league }}</h2>
+ <table class="league">
+     <tr><th>#</th><th>Team</th><th>Manager</th><th>Total Points</th></tr>
+     {% for team in league_teams %}
+     <tr><td>{{ forloop.counter }}</td><td>{{ team }}</td><td>{{ team.team.user }}</td><td>{{ team.total_points }}</td></tr>
+     {% endfor %}
+ </table>
+</div>
+{% endblock %}

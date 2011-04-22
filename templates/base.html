@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>{% block title %}Fantasy M-League{% endblock %}</title>
+<script language="javascript" type="text/javascript" src="/sitemedia/js/jquery/jquery-1.3.2.js"></script>
+<script language="javascript" type="text/javascript" src="/sitemedia/js/jquery/ui/jquery-ui.js"></script>
+<script language="javascript" type="text/javascript" src="/sitemedia/js/jquery/ui/ui.droppable.js"></script>
+<script language="javascript" type="text/javascript" src="/sitemedia/js/jquery/ui/ui.draggable.js"></script>
+<script language="javascript" type="text/javascript" src="/sitemedia/js/jquery/jquery.blockUI.js"></script>
+<script language="javascript" type="text/javascript" src="/sitemedia/js/jquery/appenddom.js"></script>
+<script language="javascript" type="text/javascript" src="/sitemedia/js/jquery/jtip.js"></script>
+<script language="javascript" type="text/javascript" src="/sitemedia/js/jquery/jquery.bgiframe.js"></script>
+<script language="javascript" type="text/javascript" src="/sitemedia/js/jquery/jquery.dimensions.js"></script>
+<script language="javascript" type="text/javascript" src="/sitemedia/js/jquery/chili-1.7.pack.js"></script>
+<script language="javascript" type="text/javascript" src="/sitemedia/js/jquery/jquery.tooltip.js"></script>
+<script language="javascript" type="text/javascript" src="/sitemedia/js/jquery/jquery.simplemodal.js"></script>
+<script language="javascript" type="text/javascript" src="/sitemedia/js/jquery/jquery.corner.js"></script>
+<script language="javascript" type="text/javascript" src="/sitemedia/js/jquery-ui-1.7.2.custom.min.js"></script>
+
+<script language="javascript" type="text/javascript" src="/sitemedia/js/common.js"></script>
+<link rel="stylesheet" type="text/css" href="/sitemedia/css/default.css"/>
+<link type="text/css" href="/sitemedia/css/sunny/jquery-ui-1.7.2.custom.css" rel="stylesheet" />
+
+
+</head>
+
+<body>
+<div id="wrapper">
+<!-- start header -->
+<div id="header">
+	<div id="logo">
+		<h1><a href="#"><span>Fantasy League</span></a></h1>
+	<div id="fam"></div>
+	</div>
+    {% block menu %}
+    
+	{% load tags %}
+	
+	    
+	<div id="menu">
+		<ul id="main">
+			<!--  <li class="{% ifequal request.path "/teammanagement/myteam/" %}current_page_item{% endifequal %}"><a href="/teammanagement/myteam">Latest Points</a></li>-->
+			<li class="{% current_page_item request "/teammanagement/myteam" %}"><a href="/teammanagement/myteam">My Line-Up</a></li>
+			<li class="{% current_page_item request "/teammanagement/transfers" %}"><a href="/teammanagement/transfers">Transfers</a></li>
+			<li class="{% current_page_item request "/league/" %}"><a href="/league/leagues">Leagues</a></li>
+			<li  ><a href="/logout">Logout</a></li>
+		</ul>
+	</div>
+    {% endblock %}
+
+</div>
+<!-- end header -->
+	<!-- start page -->
+	<div id="page">
+		<!-- start content -->
+		<div id="content">
+            {% block content %}{% endblock %}
+            {% block extra %}{% endblock %}
+		</div>
+		<!-- end content -->
+		<!-- start sidebars -->
+		<div id="sidebar1" class="sidebar">
+			<ul>
+
+				<li>
+					<h2>Next Deadline</h2>
+                    <table  class="standings">
+                    <tr><th>Closed: Gameweek 7</th></tr>
+                    <tr><td>27 Feb 18:00 MYT</td></tr>
+                    <tr><td></td></tr>
+                    <tr><th>Open:Gameweek 8</th></tr>
+                    <tr><td>03 Mar 18:00 MYT</td></tr>
+                    </table>
+				</li>
+
+				<li>
+					<h2>This Week's Fixtures</h2>
+                        {% block fixture %}
+                            <ul>
+                                <li>Pahang vs Selangor</li>
+                                <li>Kelantan vs Sabah</li>
+                                <li>Negri Sembilan vs Perak</li>
+                                <li>Johor vs Kuala Lumpur</li>
+                            </ul>
+                        {% endblock %}
+				</li>
+
+				<li>
+					<h2>League Table</h2>
+                    <table  class="standings">
+                    <tr><th>Team</th><th>Pld</th><th>Pts</th></tr>
+                    <tr><td>Selangor</td><td>8</td><td>19</td></tr>
+                    <tr><td>Terengganu</td><td>7</td><td>14</td></tr>
+                    <tr><td>Kedah</td><td>7</td><td>13</td></tr>
+                    <tr><td>Johor FC</td><td>7</td><td>12</td></tr>
+                    <tr><td>Pahang</td><td>6</td><td>12</td></tr>
+                    <tr><td>Kelantan</td><td>7</td><td>11</td></tr>
+                    <tr><td>Perlis</td><td>7</td><td>11</td></tr>
+                    <tr><td>Negri Sembilan</td><td>7</td><td>11</td></tr>
+                    <tr><td>Kuala Lumpur</td><td>7</td><td>10</td></tr>
+                    <tr><td>KL PLUS</td><td>7</td><td>9</td></tr>
+                    </table>
+                    </li>
+             </ul>
+        </div>
+        <div></div>
+		<div id="sidebar2" class="sidebar">
+			<ul>
+				<li>
+                {% block filter %}
+                	<h2 class="manager">
+                        <div>{{ user.username }}</div></h2>
+                        <table  class="standings">
+                        <tr><td></td></tr>
+                        <tr><th>Points (Rank)</th></tr>
+                        <tr><td>Overall: 123 (2)</td></tr>
+                        <tr><td>This Month: 100 (1)</td></tr>
+                        <tr><td></td></tr>
+
+                        <tr><th>Latest Points</th></tr>
+                        <tr><td>Gameweek 8: 54</td></tr>
+                        <tr><td></td></tr>
+
+                        <tr><th>Leagues</th></tr>
+                        <tr><td><a href="">Test League</a></td></tr>
+                        <tr><td><a href="">Test League 2</a></td></tr>
+                        <tr><td></td></tr>
+
+                        <tr><th>Team Finances</th></tr>
+                        <tr><td>Team Value: 104.5</td></tr>
+                        <tr><td>In the Bank: 0.6</td></tr>
+                        </table>
+                {% endblock %}
+				</li>
+			</ul>
+		</div>
+		<!-- end sidebars -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end page -->
+</div>
+<div id="footer">
+	<p class="copyright">&copy;&nbsp;&nbsp;2009 All Rights Reserved &nbsp;&bull;&nbsp; Design by Han Solo</p>
+</div>
+
+
+<div id="playerBio">
+</div>
+</body>
+</html>
+

@@ -1,0 +1,121 @@
+
+<form id="target" action="." method="post">
+<br><br>
+<div>
+<table class="pitchhead" >
+<tr><th colspan="3">{{ myTeam.name }}</th></tr>
+<tr><td>Team Status: <div class="teamstatus">Complete</div>
+ 	 </td>
+	 <td>Transfers Remaining: <div class="transfersleft">Unlimited</div>
+</td>
+	 <td align="center">Bank<div class="bank">8.0</div></td></tr>
+</table>
+</div>
+{% if form.teamName %}
+<br><br>
+
+      <div>
+      {{ form.teamName.errors }}
+      <label for="id_team_name">Team Name:</label>
+      {{ form.teamName }}
+ 		 </div>
+<br>
+{% endif %}
+<div class="grid">
+<script language="javascript" type="text/javascript" src="/sitemedia/js/transfers.js"></script>
+{{ count }}
+<table class="pitch" id="grid">
+    <tr>
+        <td style="visibility:hidden"></td>
+
+        {% if myplayers.g %}
+            {% for g in myplayers.g %}
+                <td class="drop" id="{{g.player.id}}">
+                    <img src="/sitemedia/images/shirts/{{ g.player.current_team_code }}.gif"><br>
+                    <a href="#" class="remove" id="{{g.player.id}}"><img src="/sitemedia/images/delete-icon.png"></a>
+                    <a href="#" class="viewplayer" id="{{g.player.id}}"><img src="/sitemedia/images/info-icon.png"></a>
+                    <div id="{{ g.player.id }}" class="selection_name">{{ g.player.firstname }}<br>{{ g.player.lastname }}</div>
+                    <div id="{{ g.player.id }}" class="selection_val">{{ g.player.value }}</div>
+                    <input type="hidden" name="playerId" value="{{ g.player.id }}">
+                </td>
+                <td style="visibility:hidden"></td>
+            {% endfor %}
+        {% else %}
+            <td id="display" class="drop"><img src="/sitemedia/images/shirta_0.gif"></td>
+            <td style="visibility:hidden"></td>
+            <td id="display" class="drop"><img src="/sitemedia/images/shirta_0.gif"></td>
+            <td style="visibility:hidden"></td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if myplayers.d %}
+            {% for d in myplayers.d %}
+                <td id="display" class="drop" id="{{d.player.id}}">
+                    <img src="/sitemedia/images/shirts/{{ d.player.current_team_code }}.gif"><br>
+                    <a href="#" class="remove" id="{{d.player.id}}"><img src="/sitemedia/images/delete-icon.png"></a>
+                    <a href="#" class="viewplayer" id="{{d.player.id}}"><img src="/sitemedia/images/info-icon.png"></a>
+                    <div id="{{ d.player.id }}" class="selection_name">{{ d.player.firstname }}<br>{{ d.player.lastname }}</div>
+                    <div id="{{ g.player.id }}" class="selection_val">{{ d.player.value }}</div>
+                    <input type="hidden" name="playerId" value="{{ d.player.id }}">
+                </td>
+            {% endfor %}
+        {% else %}
+            <td id="display" class="drop"><img src="/sitemedia/images/shirta_0.gif"></td>
+            <td id="display" class="drop"><img src="/sitemedia/images/shirta_0.gif"></td>
+            <td id="display" class="drop"><img src="/sitemedia/images/shirta_0.gif"></td>
+            <td id="display" class="drop"><img src="/sitemedia/images/shirta_0.gif"></td>
+            <td id="display" class="drop"><img src="/sitemedia/images/shirta_0.gif"></td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if myplayers.m %}
+            {% for m in myplayers.m %}
+                <td id="display" class="drop" id="{{m.player.id}}">
+                    <img src="/sitemedia/images/shirts/{{ m.player.current_team_code }}.gif"><br>
+                    <a href="#" class="remove" id="{{m.player.id}}"><img src="/sitemedia/images/delete-icon.png"></a>
+                    <a href="#" class="viewplayer" id="{{m.player.id}}"><img src="/sitemedia/images/info-icon.png"></a>
+                    <div id="{{ m.player.id }}" class="selection_name">{{ m.player.firstname }}<br>{{ m.player.lastname }}</div>
+                    <div id="{{ g.player.id }}" class="selection_val">{{ m.player.value }}</div>
+                    <input type="hidden" name="playerId" value="{{ m.player.id }}">
+                </td>
+            {% endfor %}
+        {% else %}
+            <td id="display" class="drop"><img src="/sitemedia/images/shirta_0.gif"></td>
+            <td id="display" class="drop"><img src="/sitemedia/images/shirta_0.gif"></td>
+            <td id="display" class="drop"><img src="/sitemedia/images/shirta_0.gif"></td>
+            <td id="display" class="drop"><img src="/sitemedia/images/shirta_0.gif"></td>
+            <td id="display" class="drop"><img src="/sitemedia/images/shirta_0.gif"></td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td style="visibility:hidden"></td>
+        {% if myplayers.f %}
+            {% for f in myplayers.f %}
+                <td id="display" class="drop" id="{{f.player.id}}">
+                    <img src="/sitemedia/images/shirts/{{ f.player.current_team_code }}.gif"><br>
+                    <a href="#" class="remove" id="{{f.player.id}}"><img src="/sitemedia/images/delete-icon.png"></a>
+                    <a href="#" class="viewplayer" id="{{f.player.id}}"><img src="/sitemedia/images/info-icon.png"></a>
+                    <div id="{{ f.player.id }}" class="selection_name">{{ f.player.firstname }}<br>{{ f.player.lastname }}</div>
+                    <div id="{{ g.player.id }}" class="selection_val">{{ f.player.value }}</div>
+                    <input type="hidden" name="playerId" value="{{ f.player.id }}">
+                </td>
+            {% endfor %}
+        {% else %}
+            <td id="display" class="drop"><img src="/sitemedia/images/shirta_0.gif"></td>
+            <td id="display" class="drop"><img src="/sitemedia/images/shirta_0.gif"></td>
+            <td id="display" class="drop"><img src="/sitemedia/images/shirta_0.gif"></td>
+        {% endif %}
+        <td style="visibility:hidden"></td>
+    </tr>
+</table>
+
+</div>
+
+<br><br>
+<div class="post">
+  <div align="right" class="box-bg">
+    <input type="submit"  id="submit" class="ui-state-default ui-corner-all" value="Transfer Players" />
+  </div>
+</div>
+</form>
+

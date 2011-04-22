@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %} Listing Players{% endblock %}
+
+{% block content %}
+    {% for player in players_list %}
+        <p>{{ player }}</p>
+        <p>{{ player.id }}</p>
+    {% endfor %}
+{% endblock %}

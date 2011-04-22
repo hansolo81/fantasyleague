@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "league/league_tab.html" %}
+<div id="subcontent">
+<h2>Private Leagues</h2>
+<table class="league">
+       <tr><th>League</th><th>Your Rank</th><th>Administer</th></tr>
+   {% for league in leagues %}
+       <tr>
+           <td><a href="/league/league/{{ league.id }}">{{ league }}</a> ( {{ league.code }} ) </td>
+           <td><img alt="Up" src="../../sitemedia/images/move_same.png">1</td>
+           <td><img height="20" width="20" title="Make changes to this league" alt="Administer this league" src="../../sitemedia/images/league_admin.png"></td>
+       </tr>
+  	{% endfor %}
+</table>
+</div>
+{% endblock %}

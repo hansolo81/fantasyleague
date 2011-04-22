@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block menu %}{% endblock %}
+{% block filter %}<h2>Unregistered User</h2><div>Click <a href="/login/">here</a> to login</div>{% endblock %}
+{% block content %}
+<form method="post" action=".">
+<table>
+  {{ form.as_table }}
+</table>
+  <input type="submit" class="ui-state-default ui-corner-all" value="{% trans 'Submit' %}" /><br>
+</form>
+{% endblock %}

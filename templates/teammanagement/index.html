@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="." method="post">
+<div class="grid">
+{{ count }}
+<table id="grid">
+    <tr>
+        <td style="visibility:hidden"></td>
+
+        {% if myplayers.g %}
+            {% for g in myplayers.g %}
+                <td id="display" class="drop">
+                    <div id="{{ g.player.id }}">{{ g.player }}</div>
+                    <a href="#" class="remove" id="{{g.player.id}}">remove</a>
+                    <input type="hidden" name="playerId" value="{{ g.player.id }}">
+                </td>
+                <td style="visibility:hidden"></td>
+            {% endfor %}
+        {% else %}
+            <td id="display" class="drop"></td>
+            <td style="visibility:hidden"></td>
+            <td id="display" class="drop"></td>
+            <td style="visibility:hidden"></td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if myplayers.d %}
+            {% for d in myplayers.d %}
+                <td id="display" class="drop">
+                    <div id="{{ d.player.id }}">{{ d.player }}</div>
+                    <a href="#" class="remove" id="{{d.player.id}}">remove</a>
+                    <input type="hidden" name="playerId" value="{{ d.player.id }}">
+                </td>
+            {% endfor %}
+        {% else %}
+            <td id="display" class="drop"></td>
+            <td id="display" class="drop"></td>
+            <td id="display" class="drop"></td>
+            <td id="display" class="drop"></td>
+            <td id="display" class="drop"></td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if myplayers.m %}
+            {% for m in myplayers.m %}
+                <td id="display" class="drop">
+                    <div id="{{ m.player.id }}">{{ m.player }}</div>
+                    <a href="#" class="remove" id="{{m.player.id}}">remove</a>
+                    <input type="hidden" name="playerId" value="{{ m.player.id }}">
+                </td>
+            {% endfor %}
+        {% else %}
+            <td id="display" class="drop"></td>
+            <td id="display" class="drop"></td>
+            <td id="display" class="drop"></td>
+            <td id="display" class="drop"></td>
+            <td id="display" class="drop"></td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td style="visibility:hidden"></td>
+        {% if myplayers.f %}
+            {% for f in myplayers.f %}
+                <td id="display" class="drop">
+                    <div id="{{ f.player.id }}">{{ f.player }}</div>
+                    <a href="#" class="remove" id="{{f.player.id}}">remove</a>
+                    <input type="hidden" name="playerId" value="{{ f.player.id }}">
+                </td>
+            {% endfor %}
+        {% else %}
+            <td id="display" class="drop"></td>
+            <td id="display" class="drop"></td>
+            <td id="display" class="drop"></td>
+        {% endif %}
+        <td style="visibility:hidden"></td>
+    </tr>
+</table>
+
+</div>
+{% endblock %}
+
+{% block extra %}
+
+<div class="post">
+  <div align="right" class="box-bg">
+    <input type="submit" value="Submit" />
+  </div>
+</div>
+</form>
+
+{% endblock %}
+
+{% block filter %}
+	<h2>Select Player</h2>
+    {% if dict.players_list %}
+        {{ form }}
+        <table class="right">
+        <tr><th>NAME</th><th>TEAM</th><th>VALUE</th></tr>
+        {% for player in dict.players_list %}
+        <tr><td class="player"><div class="block" id="{{ player.id }}">{{ player }}</div></td><td class="player">{{ player.teams }}</td><td class="value">{{ player.value }}</td></tr>
+        {% endfor %}
+        </table>
+
+    {% endif %}
+{% endblock %}

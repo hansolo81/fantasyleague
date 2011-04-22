@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}{{ block.super }} - Login{% endblock %}
+
+{% block body_title %}Login{% endblock %}
+{% block menu %}{% endblock %}
+{% block content %}
+<img alt="" src="../sitemedia/images/national23-2.jpg">
+{% endblock %}
+
+
+
+{% block filter %}
+<h2>Login</h2>
+<form method="post" action=".">
+<table>
+{{ form.as_table }}
+</table>
+<div align="right"><input type="submit" class="ui-state-default ui-corner-all" value="Login" /></div>
+<br><div align="right"><a href="/accounts/register">No account yet? Sign Up >></a></div>
+
+
+</form>
+{% endblock %}

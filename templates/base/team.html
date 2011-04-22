@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if team_list %}
+    <ul>
+    {% for team in team_list %}
+        <li>{{ team }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No teams are available.</p>
+{% endif %}
+
+{% endblock %}
+

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block menu %}{% endblock %}
+{% block filter %}<h2>Unregistered User</h2><div>Click <a href="/login/">here</a> to login</div>{% endblock %}
+{% block content %}
+<p>You are now registered. You can use your new login to access the site <a href="/login/">here</a>. </p>
+{% endblock %}

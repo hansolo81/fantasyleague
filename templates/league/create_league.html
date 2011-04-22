@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "league/league_tab.html" %}
+<div id="subcontent">
+	<form action="." method="post">
+	    <h2>Create a private league</h2>
+	    <table>
+	   	{{ form.as_table }}
+	   	</table>
+		<div align="right" class="box-bg">
+		  <input type="submit"  class="ui-state-default ui-corner-all" value="Create League" />
+		</div>
+    </form>
+</div>
+{% endblock %}

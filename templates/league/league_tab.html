@@ -1,0 +1,5 @@
+<div class="leaguecontainer">
+	<div class="{% ifequal request.path "/league/leagues/" %}selected{% endifequal %}"><a href="/league/leagues">My Leagues</a></div>
+	<div class="{% ifequal request.path "/league/join_league/" %}selected{% endifequal %}"><a href="/league/join_league">Join League</a></div>
+	<div class="{% ifequal request.path "/league/create_league/" %}selected{% endifequal %}"><a href="/league/create_league">Create League</a></div>
+</div>

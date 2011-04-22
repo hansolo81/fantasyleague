@@ -1,0 +1,39 @@
+<style>
+<!--
+html {
+padding:0px;
+margin:0px;
+}
+body {
+background-color: #e1ddd9;
+font-size: 12px;
+font-family: Verdana, Arial, SunSans-Regular, Sans-Serif;
+color:#564b47;
+padding:0px;
+margin:0px;
+}
+#content {
+position: absolute;
+left: 25%;
+width: 50%;
+top: 106px;
+background-color: #ffffff;
+overflow: auto;
+}
+#left {
+position: absolute;
+left: 2%;
+width: 22%;
+top: 106px;
+background-color: #ffffff;
+}
+#right {
+position: absolute;
+left: 76%;
+width: 22%;
+top: 106px;
+background-color: #ffffff;
+overflow: auto;
+}
+-->
+</style>

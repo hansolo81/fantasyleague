@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+abc
+{% block filter %}
+
+    {% if dict.players_list %}
+        Select a player : <br/>
+        {{ form }}
+    {% endif %}
+{% endblock %}

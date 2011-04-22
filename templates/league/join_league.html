@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "league/league_tab.html" %}
+<div id="subcontent">
+	<form action="." method="post">
+	    <h2>Join a private league</h2>
+	    <div>Have a code to join a league? Simply enter it in the box below and click on join league.</div>
+	    <div class="error">{{ error }}</div>
+	    <table>
+	   	{{ form.as_table }}
+	   	</table>
+		<div align="right" class="box-bg">
+		  <input type="submit"  class="ui-state-default ui-corner-all" value="Join League" />
+		</div>
+    </form>
+</div>
+{% endblock %}

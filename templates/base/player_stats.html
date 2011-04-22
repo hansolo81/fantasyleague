@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% include "sidebar.html" %}
+
+
+{% block content %}
+
+    {% if dict %}
+        {{ dict.player }}<br/>
+        <table>
+            <tr>
+                <th>Week</th>
+                <th>Goals</th>
+                <th>Assists</th>
+                <th>Conceded</th>
+                <th>Saves</th>
+                <th>Yellow Card</th>
+                <th>Red Card</th>
+                <th>Bonus</th>
+            </tr>
+        {% if dict.player_stats %}
+            {% for stats in dict.player_stats %}
+
+                <tr>
+                    <td>{{ stats.week }}</td>
+                    <td>{{ stats.goals }}</td>
+                    <td>{{ stats.assists }}</td>
+                    <td>{{ stats.conceded }}</td>
+                    <td>{{ stats.saves }}</td>
+                    <td>{{ stats.yellow_card }}</td>
+                    <td>{{ stats.red_card }}</td>
+                    <td>{{ stats.bonus }}</td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+        </table>
+    {% endif %}
+
+{% endblock %}
+
+{% block filter %}
+
+    {% if dict.players_list %}
+        Select a player : <br/>
+        {{ form }}
+    {% endif %}
+{% endblock %}

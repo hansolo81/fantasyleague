@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block menu %}
+{% endblock %}
+{% block content %}
+
+{% include "teammanagement/grid-transfers.html" %}
+{% endblock %}
+
+
+{% block filter %}
+	<h2>Select Player</h2>
+    {% if players_list %}<br>
+        <div class="filtercontainer">
+        <div class="selectedfilter" id="-1"><a href="#">ALL</a></div>
+        <div class="positionfilter" id="1"><a href="#">GK</a></div>
+        <div class="positionfilter" id="2"><a href="#">DF</a></div>
+        <div class="positionfilter" id="3"><a href="#">MF</a></div>
+        <div class="positionfilter" id="4"><a href="#">FW</a></div>
+        </div>
+        <div class="advancedfilter"><br>
+        
+        <p class="fieldWrapper">
+        {{ form.team.errors }}
+        <label for="id_team">Team:</label>
+        {{ form.team }}
+   		 </p>
+        
+        <p class="fieldWrapper">
+        {{ form.value.errors }}
+        <label for="id_team">Value:</label>
+        {{ form.value }}
+   		 </p>
+        
+        <br></div>
+
+        <table class="standings" id="playerfilter">
+        <tr class="header"><th></th><th>NAME</th><th>POS</th><th>VAL</th><th>PTS</th></tr>
+        {% for player in players_list %}
+        <tr class="playerlist">
+            <td class="viewplayer" id="{{ player.id }}"><a href="#"><img src="/sitemedia/images/info-icon.png"> </a></td>
+            <td class="block" id="{{ player.id }}" title="Drag Me to the Pitch!"><div>{{ player.firstname }}<div><div>{{ player.lastname }}</div></a></td>
+            <td class="position"><div>{{ player.position }}</div></td>
+            <td class="value"><div>{{ player.value }}</div></td>
+            <td class="points">{{ player.total_points }}</td>
+            <td class="team" id="{{ player.current_team_code }}"></td>
+
+        </tr>
+        {% endfor %}
+        </table>
+
+    {% endif %}
+{% endblock %}
+
+
+{% block fixture %}
+<ul>
+    {% for fix in fixtureslist %}
+        <li>{{ fix }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

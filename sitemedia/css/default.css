@@ -822,3 +822,8 @@ legend { font-weight: bold; }
    text-align: center;
    zoom: 1;
 }
+
+input#id_username, #id_password {
+    width: 10em;
+}
+

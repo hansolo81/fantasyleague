@@ -4,6 +4,7 @@
 {% include "league/league_tab.html" %}
 <div id="subcontent">
 	<form action="." method="post">
+        {% csrf_token %}
 	    <h2>Join a private league</h2>
 	    <div>Have a code to join a league? Simply enter it in the box below and click on join league.</div>
 	    <div class="error">{{ error }}</div>

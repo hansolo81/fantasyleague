@@ -4,6 +4,7 @@
 {% include "league/league_tab.html" %}
 <div id="subcontent">
 	<form action="." method="post">
+        {% csrf_token %}
 	    <h2>Create a private league</h2>
 	    <table>
 	   	{{ form.as_table }}

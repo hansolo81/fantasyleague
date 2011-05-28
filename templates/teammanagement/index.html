@@ -2,6 +2,7 @@
 
 {% block content %}
 <form action="." method="post">
+{% csrf_token %} 
 <div class="grid">
 {{ count }}
 <table id="grid">

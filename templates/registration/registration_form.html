@@ -5,6 +5,7 @@
 {% block filter %}<h2>Unregistered User</h2><div>Click <a href="/login/">here</a> to login</div>{% endblock %}
 {% block content %}
 <form method="post" action=".">
+{% csrf_token %}
 <table>
   {{ form.as_table }}
 </table>
